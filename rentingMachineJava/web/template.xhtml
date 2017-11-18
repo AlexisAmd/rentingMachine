@@ -13,7 +13,9 @@
            <h:outputStylesheet library="css" name="template.scss"/>
 
         <h:outputScript library="js" name="jsfcrud.js"/>
-<!--        <h:outputScript library="js" name="jquery.js"/>
+<!--
+        <h:outputScript library="js" name="jquery.js"/>
+
          <h:outputScript library="js" name="ajax.js"/>
          <h:outputScript library="js" name="bootstrap.js"/>-->
          <meta charset="utf-8"></meta>
@@ -29,17 +31,15 @@
 
         <p:layout fullPage="true">
            <p:layoutUnit position="north">
-<!--               <ui:include src="inc/header.xhtml"/>-->
-               <h:form id="menuForm">
+
+<ui:include src="inc/header.xhtml"/>
+<!--               <h:form id="menuForm">
                     <p:menubar>
-                        
                             <p:menuitem value="Chambre" outcome="/chambre/List.xhtml" />
                             <p:menuitem value="Client" outcome="/client/List.xhtml" />
                             <p:menuitem value="Reservation" outcome="/reservation/List.xhtml" />
-                            <p:menuitem value="Tarif" outcome="/tarif/List.xhtml" />
-                       
                     </p:menubar>
-                </h:form>
+                </h:form>-->
             </p:layoutUnit>
             
             

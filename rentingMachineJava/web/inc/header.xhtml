@@ -15,11 +15,10 @@
                             align-items-center
                             d-flex justify-content-center">
                             <li class="nav-item">
-                                <h:link class="active nav-link" outcome="/chambre/List" >tst</h:link>
-                                <a href="index.xhtml" class="active nav-link"><i class="fa fa-home fa-home"></i> Accueil</a>
+                                <h:link id="btn-index" class="nav-link" outcome="/chambre/List" ><i class="fa fa-home fa-home"></i> Accueil</h:link>
                             </li>
                             <li class="nav-item">
-                                <a href="rent.xhtml" class="nav-link"><i class="fa fa-credit-card fa-credit-card"></i> Réservations</a>
+                                  <h:link id="btn-reservation" class="nav-link" outcome="/reservation/List" ><i class="fa fa-credit-card fa-credit-card"></i> Réservation</h:link>
                             </li>
                             <li class="nav-item">
                                 <a href="client.xhtml" class="nav-link"><i class="fa fa_users fa-users"></i> Clients</a>
