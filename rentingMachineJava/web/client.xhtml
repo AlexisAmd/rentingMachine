@@ -11,6 +11,19 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <div>TODO write content</div>
+        <p:form>
+                 <p:panel header="Sale Item" style="width: 400px;"> 
+                <p:panelGrid columns="2">
+                    <h:outputLabel for="item" value="Item Name: " />
+                    <p:inputText  value="#{item.item}"/>
+                    <h:outputLabel for="qty" value="Qyantity: " />
+                    <p:inputText value="#{item.qty}"/>
+                    <h:outputLabel for="price" value="Price: " />
+                    <p:inputText  value="#{item.price}"/>
+                    <f:facet name="footer">
+                        <h:commandButton value="Add Item" action="#{item.addAction}"/>
+                    </f:facet>
+                </p:panelGrid>
+                     </p:form>
     </body>
 </html>
