@@ -11,9 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <title>Gestion des clients</title>
         <!-- font -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-        </link>
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css"></link>
         <link rel="stylesheet" href="css/template.css" type="text/css"></link>
         <!--        Script -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -23,12 +21,13 @@
 
     <h:body>
         <ui:include src="inc/headerClient.xhtml" />
-
-        <!--Div contenant un tableau qui liste les clients (nom, prenom, tel). Doit permettre de mettre à jour 
-        les infos de chaque client et d'ajouter un nouveau client-->
+        <!-- Div contenant un tableau qui liste les clients (nom, prenom, tel). Doit permettre de mettre à jour 
+        les infos de chaque client et d'ajouter un nouveau client -->
+        
         <div class="container h-100 border border-primary rounded" style="min-height: 200px;">
 
             <h:form>
+                <p:panel header="Ajouter un client">
                       <p:panelGrid columns="2">
                             <h:outputLabel for="item" value="Nom: " />
                             <p:inputText  value="#{client.nom}"/>
@@ -40,6 +39,7 @@
                                 <h:commandButton value="Add Item" action="#{client.addClient}"/>
                             </f:facet>
                         </p:panelGrid>
+                </p:panel>
             </h:form>
 
         </div>
