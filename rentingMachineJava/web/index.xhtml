@@ -22,12 +22,16 @@
     </h:head>
 
     <h:body>
-        <div class="row">
+       
+        <ui:include src="inc/header.xhtml" />
+
+        <div class="container h-100 border border-primary rounded" style="min-height: 200px;">
+             <div class="row">
             <div class="col">
                 <!-- contenu de la page ici ! -->
                 <h:form id="form1">
                     <p:growl id="messages" showDetail="true"/>
-                    <p:panel header="Sale Item" style="width: 400px;"> 
+                    <p:panel header="Ajouter un client" style="width: 400px;"> 
                         <p:panelGrid columns="2">
                             <h:outputLabel for="item" value="Nom: " />
                             <p:inputText  value="#{client.nom}"/>
@@ -36,13 +40,15 @@
                             <h:outputLabel for="price" value="Telephone: " />
                             <p:inputText  value="#{client.telephone}"/>
                             <f:facet name="footer">
-                                <h:commandButton value="Add Item" action="#{client.addClient}"/>
+                                <h:commandButton value="Ajouter" action="#{client.addClient}"/>
                             </f:facet>
                         </p:panelGrid>
                         <p:spacer height="30px;"/>
-                        <p:dataTable value="#{item.orderList}" var="o"  widgetVar="50"  editable="true">
+                        
+                        
+                        <p:dataTable value="#{client.orderList}" var="o"  widgetVar="50"  editable="true">
                             <f:facet name="header">  
-                                Order List  
+                                Liste des clients  
                             </f:facet>
                             <p:ajax event="rowEdit" listener="#{item.onEdit}" update=":form1:messages" />  
                             <p:ajax event="rowEditCancel" listener="#{item.onCancel}" update=":form1:messages" /> 
@@ -97,9 +103,6 @@
             </div>
         </div>
 
-        <ui:include src="inc/header.xhtml" />
-
-        <div class="container h-100 border border-primary rounded" style="min-height: 200px;">
         </div>
     </h:body>
 
