@@ -1,12 +1,10 @@
-
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core"
-      >
+      xmlns:f="http://java.sun.com/jsf/core">
 
     <h:head>
         <meta charset="utf-8"></meta>
@@ -31,18 +29,17 @@
         <div class="container h-100 border border-primary rounded" style="min-height: 200px;">
 
             <h:form>
-                <p:panel header="Sale Item" style="width: 400px;"> 
-                    <p:panelGrid columns="2">
-                        <h:outputLabel for="item" value="Item Name: " />
-                        <p:inputText  value="#{item.item}"/>
-                        <h:outputLabel for="qty" value="Qyantity: " />
-                        <p:inputText value="#{item.qty}"/>
-                        <h:outputLabel for="price" value="Price: " />
-                        <p:inputText  value="#{item.price}"/>
-                        <f:facet name="footer">
-                            <h:commandButton value="Add Item" action="#{item.addAction}"/>
-                        </f:facet>
-                    </p:panelGrid>
+                      <p:panelGrid columns="2">
+                            <h:outputLabel for="item" value="Nom: " />
+                            <p:inputText  value="#{client.nom}"/>
+                            <h:outputLabel for="qty" value="Prenom: " />
+                            <p:inputText value="#{client.prenom}"/>
+                            <h:outputLabel for="price" value="Telephone: " />
+                            <p:inputText  value="#{client.telephone}"/>
+                            <f:facet name="footer">
+                                <h:commandButton value="Add Item" action="#{client.addClient}"/>
+                            </f:facet>
+                        </p:panelGrid>
             </h:form>
 
         </div>
