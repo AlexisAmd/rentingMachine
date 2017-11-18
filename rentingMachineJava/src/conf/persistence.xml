@@ -3,8 +3,9 @@
   <persistence-unit name="rentingMachineJavaPU" transaction-type="JTA">
     <jta-data-source>java:app/JNDI_hotel</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <shared-cache-mode>ALL</shared-cache-mode>
     <properties>
-      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>
 </persistence>

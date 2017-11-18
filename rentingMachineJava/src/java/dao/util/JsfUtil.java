@@ -1,4 +1,4 @@
-package model.util;
+package dao.util;
 
 import java.util.List;
 import javax.faces.application.FacesMessage;

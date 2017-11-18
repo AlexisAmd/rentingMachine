@@ -8,7 +8,7 @@
 
     <ui:composition>
 
-        <p:dialog id="ChambreCreateDlg" widgetVar="ChambreCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Créer une chambre">
+        <p:dialog id="ChambreCreateDlg" widgetVar="ChambreCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateChambreTitle}">
             <h:form id="ChambreCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{chambreController.selected != null}">
@@ -21,7 +21,7 @@
                         <p:outputLabel value="#{bundle.CreateChambreLabel_nomChambre}" for="nomChambre" />
                         <p:inputText id="nomChambre" value="#{chambreController.selected.nomChambre}" title="#{bundle.CreateChambreTitle_nomChambre}" />
                         <p:outputLabel value="#{bundle.CreateChambreLabel_vignette}" for="vignette" />
-                        <p:inputText id="vignette" value="#{chambreController.selected.vignette}" title="#{bundle.CreateChambreTitle_vignette}"  requiredMessage="#{bundle.CreateChambreRequiredMessage_vignette}"/>
+                        <p:inputText id="vignette" value="#{chambreController.selected.vignette}" title="#{bundle.CreateChambreTitle_vignette}" required="true" requiredMessage="#{bundle.CreateChambreRequiredMessage_vignette}"/>
                         <p:outputLabel value="#{bundle.CreateChambreLabel_idTarif}" for="idTarif" />
                         <p:selectOneMenu id="idTarif" value="#{chambreController.selected.idTarif}" >
                             <f:selectItems value="#{tarifController.itemsAvailableSelectOne}"

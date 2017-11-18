@@ -20,7 +20,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -52,10 +51,8 @@ public class Chambre implements Serializable {
     @Size(max = 30)
     @Column(length = 30)
     private String nomChambre;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 200)
-    @Column(nullable = false, length = 200)
+    @Size(max = 200)
+    @Column(length = 200)
     private String vignette;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idChambre")
     private Collection<Reservation> reservationCollection;
@@ -68,11 +65,6 @@ public class Chambre implements Serializable {
 
     public Chambre(Short idChambre) {
         this.idChambre = idChambre;
-    }
-
-    public Chambre(Short idChambre, String vignette) {
-        this.idChambre = idChambre;
-        this.vignette = vignette;
     }
 
     public Short getIdChambre() {

@@ -1,7 +1,9 @@
-package model;
+package dao;
 
-import model.util.JsfUtil;
-import model.util.JsfUtil.PersistAction;
+import model.Client;
+import dao.util.JsfUtil;
+import dao.util.JsfUtil.PersistAction;
+import controller.ClientFacade;
 
 import java.io.Serializable;
 import java.util.List;
@@ -22,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class ClientController implements Serializable {
 
     @EJB
-    private model.ClientFacade ejbFacade;
+    private controller.ClientFacade ejbFacade;
     private List<Client> items = null;
     private Client selected;
 

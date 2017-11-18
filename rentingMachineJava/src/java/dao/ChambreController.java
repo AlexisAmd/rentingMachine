@@ -1,7 +1,9 @@
-package model;
+package dao;
 
-import model.util.JsfUtil;
-import model.util.JsfUtil.PersistAction;
+import model.Chambre;
+import dao.util.JsfUtil;
+import dao.util.JsfUtil.PersistAction;
+import controller.ChambreFacade;
 
 import java.io.Serializable;
 import java.util.List;
@@ -17,23 +19,23 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-@Named("reservationController")
+@Named("chambreController")
 @SessionScoped
-public class ReservationController implements Serializable {
+public class ChambreController implements Serializable {
 
     @EJB
-    private model.ReservationFacade ejbFacade;
-    private List<Reservation> items = null;
-    private Reservation selected;
+    private controller.ChambreFacade ejbFacade;
+    private List<Chambre> items = null;
+    private Chambre selected;
 
-    public ReservationController() {
+    public ChambreController() {
     }
 
-    public Reservation getSelected() {
+    public Chambre getSelected() {
         return selected;
     }
 
-    public void setSelected(Reservation selected) {
+    public void setSelected(Chambre selected) {
         this.selected = selected;
     }
 
@@ -43,36 +45,36 @@ public class ReservationController implements Serializable {
     protected void initializeEmbeddableKey() {
     }
 
-    private ReservationFacade getFacade() {
+    private ChambreFacade getFacade() {
         return ejbFacade;
     }
 
-    public Reservation prepareCreate() {
-        selected = new Reservation();
+    public Chambre prepareCreate() {
+        selected = new Chambre();
         initializeEmbeddableKey();
         return selected;
     }
 
     public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("ReservationCreated"));
+        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("ChambreCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("ReservationUpdated"));
+        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("ChambreUpdated"));
     }
 
     public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("ReservationDeleted"));
+        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("ChambreDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
-    public List<Reservation> getItems() {
+    public List<Chambre> getItems() {
         if (items == null) {
             items = getFacade().findAll();
         }
@@ -107,29 +109,29 @@ public class ReservationController implements Serializable {
         }
     }
 
-    public Reservation getReservation(java.lang.Short id) {
+    public Chambre getChambre(java.lang.Short id) {
         return getFacade().find(id);
     }
 
-    public List<Reservation> getItemsAvailableSelectMany() {
+    public List<Chambre> getItemsAvailableSelectMany() {
         return getFacade().findAll();
     }
 
-    public List<Reservation> getItemsAvailableSelectOne() {
+    public List<Chambre> getItemsAvailableSelectOne() {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = Reservation.class)
-    public static class ReservationControllerConverter implements Converter {
+    @FacesConverter(forClass = Chambre.class)
+    public static class ChambreControllerConverter implements Converter {
 
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            ReservationController controller = (ReservationController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "reservationController");
-            return controller.getReservation(getKey(value));
+            ChambreController controller = (ChambreController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "chambreController");
+            return controller.getChambre(getKey(value));
         }
 
         java.lang.Short getKey(String value) {
@@ -149,11 +151,11 @@ public class ReservationController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof Reservation) {
-                Reservation o = (Reservation) object;
-                return getStringKey(o.getIdRerservation());
+            if (object instanceof Chambre) {
+                Chambre o = (Chambre) object;
+                return getStringKey(o.getIdChambre());
             } else {
-                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Reservation.class.getName()});
+                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Chambre.class.getName()});
                 return null;
             }
         }

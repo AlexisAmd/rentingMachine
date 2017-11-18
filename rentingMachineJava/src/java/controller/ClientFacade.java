@@ -3,18 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package controller;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import model.Client;
 
 /**
  *
  * @author pc
  */
 @Stateless
-public class ReservationFacade extends AbstractFacade<Reservation> {
+public class ClientFacade extends AbstractFacade<Client> {
 
     @PersistenceContext(unitName = "rentingMachineJavaPU")
     private EntityManager em;
@@ -24,8 +25,8 @@ public class ReservationFacade extends AbstractFacade<Reservation> {
         return em;
     }
 
-    public ReservationFacade() {
-        super(Reservation.class);
+    public ClientFacade() {
+        super(Client.class);
     }
     
 }

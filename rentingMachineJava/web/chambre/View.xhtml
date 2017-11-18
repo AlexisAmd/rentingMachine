@@ -12,7 +12,6 @@
             <h:form id="ChambreViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{chambreController.selected != null}">
-                         <h:outputText value="#{chambreController.selected.vignette}" title="#{bundle.ViewChambreTitle_vignette}"/>
                         <h:outputText value="#{bundle.ViewChambreLabel_idChambre}"/>
                         <h:outputText value="#{chambreController.selected.idChambre}" title="#{bundle.ViewChambreTitle_idChambre}"/>
                         <h:outputText value="#{bundle.ViewChambreLabel_etage}"/>
@@ -22,6 +21,7 @@
                         <h:outputText value="#{bundle.ViewChambreLabel_nomChambre}"/>
                         <h:outputText value="#{chambreController.selected.nomChambre}" title="#{bundle.ViewChambreTitle_nomChambre}"/>
                         <h:outputText value="#{bundle.ViewChambreLabel_vignette}"/>
+                        <h:outputText value="#{chambreController.selected.vignette}" title="#{bundle.ViewChambreTitle_vignette}"/>
                         <h:outputText value="#{bundle.ViewChambreLabel_idTarif}"/>
                         <h:outputText value="#{chambreController.selected.idTarif}" title="#{bundle.ViewChambreTitle_idTarif}"/>
                     </p:panelGrid>
