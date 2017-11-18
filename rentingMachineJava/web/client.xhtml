@@ -1,33 +1,4 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <p:form>
-                 <p:panel header="Sale Item" style="width: 400px;"> 
-                <p:panelGrid columns="2">
-                    <h:outputLabel for="item" value="Item Name: " />
-                    <p:inputText  value="#{item.item}"/>
-                    <h:outputLabel for="qty" value="Qyantity: " />
-                    <p:inputText value="#{item.qty}"/>
-                    <h:outputLabel for="price" value="Price: " />
-                    <p:inputText  value="#{item.price}"/>
-                    <f:facet name="footer">
-                        <h:commandButton value="Add Item" action="#{item.addAction}"/>
-                    </f:facet>
-                </p:panelGrid>
-                     </p:form>
-    </body>
-=======
+
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -36,7 +7,7 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
       >
-    >
+
     <h:head>
         <meta charset="utf-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
@@ -54,16 +25,27 @@ and open the template in the editor.
 
     <h:body>
         <ui:include src="inc/headerClient.xhtml" />
-        
+
         <!--Div contenant un tableau qui liste les clients (nom, prenom, tel). Doit permettre de mettre à jour 
         les infos de chaque client et d'ajouter un nouveau client-->
         <div class="container h-100 border border-primary rounded" style="min-height: 200px;">
-            
-           <!-- contenu de la page ici ! -->
+
+            <h:form>
+                <p:panel header="Sale Item" style="width: 400px;"> 
+                    <p:panelGrid columns="2">
+                        <h:outputLabel for="item" value="Item Name: " />
+                        <p:inputText  value="#{item.item}"/>
+                        <h:outputLabel for="qty" value="Qyantity: " />
+                        <p:inputText value="#{item.qty}"/>
+                        <h:outputLabel for="price" value="Price: " />
+                        <p:inputText  value="#{item.price}"/>
+                        <f:facet name="footer">
+                            <h:commandButton value="Add Item" action="#{item.addAction}"/>
+                        </f:facet>
+                    </p:panelGrid>
+            </h:form>
 
         </div>
     </h:body>
- 
->>>>>>> ea8f1fbfff173a39c686287b7a81c8edae7f819a
 </html>
 
