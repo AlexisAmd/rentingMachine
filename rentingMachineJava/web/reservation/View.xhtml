@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ReservationViewDlg" widgetVar="ReservationViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewReservationTitle}">
+            <h:form id="ReservationViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{reservationController.selected != null}">
+                        <h:outputText value="#{bundle.ViewReservationLabel_idRerservation}"/>
+                        <h:outputText value="#{reservationController.selected.idRerservation}" title="#{bundle.ViewReservationTitle_idRerservation}"/>
+                        <h:outputText value="#{bundle.ViewReservationLabel_checkInDate}"/>
+                        <h:outputText value="#{reservationController.selected.checkInDate}" title="#{bundle.ViewReservationTitle_checkInDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewReservationLabel_checkOutDate}"/>
+                        <h:outputText value="#{reservationController.selected.checkOutDate}" title="#{bundle.ViewReservationTitle_checkOutDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewReservationLabel_paye}"/>
+                        <p:selectBooleanCheckbox value="#{reservationController.selected.paye}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewReservationLabel_idChambre}"/>
+                        <h:outputText value="#{reservationController.selected.idChambre}" title="#{bundle.ViewReservationTitle_idChambre}"/>
+                        <h:outputText value="#{bundle.ViewReservationLabel_idClient}"/>
+                        <h:outputText value="#{reservationController.selected.idClient}" title="#{bundle.ViewReservationTitle_idClient}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ReservationViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TarifViewDlg" widgetVar="TarifViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTarifTitle}">
+            <h:form id="TarifViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tarifController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTarifLabel_idTarif}"/>
+                        <h:outputText value="#{tarifController.selected.idTarif}" title="#{bundle.ViewTarifTitle_idTarif}"/>
+                        <h:outputText value="#{bundle.ViewTarifLabel_prix}"/>
+                        <h:outputText value="#{tarifController.selected.prix}" title="#{bundle.ViewTarifTitle_prix}"/>
+                        <h:outputText value="#{bundle.ViewTarifLabel_capacite}"/>
+                        <p:selectBooleanCheckbox value="#{tarifController.selected.capacite}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewTarifLabel_classe}"/>
+                        <h:outputText value="#{tarifController.selected.classe}" title="#{bundle.ViewTarifTitle_classe}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TarifViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

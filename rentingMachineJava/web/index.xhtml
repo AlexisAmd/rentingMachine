@@ -10,6 +10,7 @@
         <meta charset="utf-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <title>Gestion des chambres</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
         <!-- font -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
         </link>
@@ -22,89 +23,101 @@
     </h:head>
 
     <h:body>
-       
+
         <ui:include src="inc/header.xhtml" />
 
         <div class="container h-100 border border-primary rounded" style="min-height: 200px;">
-             <div class="row">
-            <div class="col">
-                <!-- contenu de la page ici ! -->
-                <h:form id="form1">
-                    <p:growl id="messages" showDetail="true"/>
-                    <p:panel header="Ajouter un client" style="width: 400px;"> 
-                        <p:panelGrid columns="2">
-                            <h:outputLabel for="item" value="Nom: " />
-                            <p:inputText  value="#{client.nom}"/>
-                            <h:outputLabel for="qty" value="Prenom: " />
-                            <p:inputText value="#{client.prenom}"/>
-                            <h:outputLabel for="price" value="Telephone: " />
-                            <p:inputText  value="#{client.telephone}"/>
-                            <f:facet name="footer">
-                                <h:commandButton value="Ajouter" action="#{client.addClient}"/>
-                            </f:facet>
-                        </p:panelGrid>
-                        <p:spacer height="30px;"/>
-                        
-                        
-                        <p:dataTable value="#{client.orderList}" var="o"  widgetVar="50"  editable="true">
-                            <f:facet name="header">  
-                                Liste des clients  
-                            </f:facet>
-                            <p:ajax event="rowEdit" listener="#{item.onEdit}" update=":form1:messages" />  
-                            <p:ajax event="rowEditCancel" listener="#{item.onCancel}" update=":form1:messages" /> 
-                            <p:column>
-                                <f:facet name="header">  
-                                    <h:outputText value="Item Name" />  
+            <div class="row">
+                <div class="col">
+                    <!-- contenu de la page ici ! -->
+                    <h:form id="form1">
+                        <p:growl id="messages" showDetail="true"/>
+                        <p:panel header="Ajouter un client" style="width: 400px;"> 
+                            <p:panelGrid columns="2">
+                                <h:outputLabel for="item" value="Nom: " />
+                                <p:inputText  value="#{client.nom}"/>
+                                <h:outputLabel for="qty" value="Prenom: " />
+                                <p:inputText value="#{client.prenom}"/>
+                                <h:outputLabel for="price" value="Telephone: " />
+                                <p:inputText  value="#{client.telephone}"/>
+                                <f:facet name="footer">
+                                    <h:commandButton value="Ajouter" action="#{client.addClient}"/>
                                 </f:facet>
-                                <p:cellEditor>  
-                                    <f:facet name="output">  
-                                        <h:outputText value="#{o.item}" />  
-                                    </f:facet>  
-                                    <f:facet name="input">  
-                                        <p:inputText value="#{o.item}" style="width:100%"/>  
-                                    </f:facet>  
-                                </p:cellEditor> 
-                            </p:column>
+                            </p:panelGrid>
+                            <p:spacer height="30px;"/>
 
-                            <p:column>
+
+                            <p:dataTable value="#{client.orderList}" var="o"  widgetVar="50"  editable="true">
                                 <f:facet name="header">  
-                                    <h:outputText value="Quantity" />  
+                                    Liste des clients  
                                 </f:facet>
-                                <p:cellEditor>  
-                                    <f:facet name="output">  
-                                        <h:outputText value="#{o.qty}" />  
-                                    </f:facet>  
-                                    <f:facet name="input">  
-                                        <p:inputText value="#{o.qty}" style="width:100%"/>  
-                                    </f:facet>  
-                                </p:cellEditor>
-                            </p:column>
+                                <p:ajax event="rowEdit" listener="#{item.onEdit}" update=":form1:messages" />  
+                                <p:ajax event="rowEditCancel" listener="#{item.onCancel}" update=":form1:messages" /> 
+                                <p:column>
+                                    <f:facet name="header">  
+                                        <h:outputText value="Item Name" />  
+                                    </f:facet>
+                                    <p:cellEditor>  
+                                        <f:facet name="output">  
+                                            <h:outputText value="#{o.item}" />  
+                                        </f:facet>  
+                                        <f:facet name="input">  
+                                            <p:inputText value="#{o.item}" style="width:100%"/>  
+                                        </f:facet>  
+                                    </p:cellEditor> 
+                                </p:column>
 
-                            <p:column>
-                                <f:facet name="header">  
-                                    <h:outputText value="Price" />  
-                                </f:facet>
-                                <p:cellEditor>  
-                                    <f:facet name="output">  
-                                        <h:outputText value="#{o.price}" />  
-                                    </f:facet>  
-                                    <f:facet name="input">  
-                                        <p:inputText value="#{o.price}" style="width:100%"/>  
-                                    </f:facet>  
-                                </p:cellEditor>
-                            </p:column>               
-                            <p:column headerText="Options">  
-                                <p:rowEditor />  
-                            </p:column> 
-                        </p:dataTable>
-                    </p:panel>
-                </h:form>
+                                <p:column>
+                                    <f:facet name="header">  
+                                        <h:outputText value="Quantity" />  
+                                    </f:facet>
+                                    <p:cellEditor>  
+                                        <f:facet name="output">  
+                                            <h:outputText value="#{o.qty}" />  
+                                        </f:facet>  
+                                        <f:facet name="input">  
+                                            <p:inputText value="#{o.qty}" style="width:100%"/>  
+                                        </f:facet>  
+                                    </p:cellEditor>
+                                </p:column>
 
+                                <p:column>
+                                    <f:facet name="header">  
+                                        <h:outputText value="Price" />  
+                                    </f:facet>
+                                    <p:cellEditor>  
+                                        <f:facet name="output">  
+                                            <h:outputText value="#{o.price}" />  
+                                        </f:facet>  
+                                        <f:facet name="input">  
+                                            <p:inputText value="#{o.price}" style="width:100%"/>  
+                                        </f:facet>  
+                                    </p:cellEditor>
+                                </p:column>               
+                                <p:column headerText="Options">  
+                                    <p:rowEditor />  
+                                </p:column> 
+                            </p:dataTable>
+                        </p:panel>
+                    </h:form>
+
+                </div>
             </div>
-        </div>
 
         </div>
+        <br />
+        <h:link outcome="/chambre/List" value="Show All Chambre Items"/>
+        <br />
+        <h:link outcome="/client/List" value="Show All Client Items"/>
+        <br />
+        <h:link outcome="/reservation/List" value="Show All Reservation Items"/>
+        <br />
+        <h:link outcome="/tarif/List" value="Show All Tarif Items"/>
     </h:body>
+
+
+
+
 
 </html>
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ReservationCreateDlg" widgetVar="ReservationCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateReservationTitle}">
+            <h:form id="ReservationCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{reservationController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateReservationLabel_idRerservation}" for="idRerservation" />
+                        <p:inputText id="idRerservation" value="#{reservationController.selected.idRerservation}" title="#{bundle.CreateReservationTitle_idRerservation}" required="true" requiredMessage="#{bundle.CreateReservationRequiredMessage_idRerservation}"/>
+                        <p:outputLabel value="#{bundle.CreateReservationLabel_checkInDate}" for="checkInDate" />
+                        <p:calendar id="checkInDate" pattern="MM/dd/yyyy" value="#{reservationController.selected.checkInDate}" title="#{bundle.EditReservationTitle_checkInDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateReservationLabel_checkOutDate}" for="checkOutDate" />
+                        <p:calendar id="checkOutDate" pattern="MM/dd/yyyy" value="#{reservationController.selected.checkOutDate}" title="#{bundle.EditReservationTitle_checkOutDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateReservationLabel_paye}" for="paye" />
+                        <p:selectBooleanCheckbox id="paye" value="#{reservationController.selected.paye}" required="true" requiredMessage="#{bundle.EditReservationRequiredMessage_paye}"/>
+                        <p:outputLabel value="#{bundle.CreateReservationLabel_idChambre}" for="idChambre" />
+                        <p:selectOneMenu id="idChambre" value="#{reservationController.selected.idChambre}" required="true" requiredMessage="#{bundle.EditReservationRequiredMessage_idChambre}">
+                            <f:selectItems value="#{chambreController.itemsAvailableSelectOne}"
+                                           var="idChambreItem"
+                                           itemValue="#{idChambreItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateReservationLabel_idClient}" for="idClient" />
+                        <p:selectOneMenu id="idClient" value="#{reservationController.selected.idClient}" required="true" requiredMessage="#{bundle.EditReservationRequiredMessage_idClient}">
+                            <f:selectItems value="#{clientController.itemsAvailableSelectOne}"
+                                           var="idClientItem"
+                                           itemValue="#{idClientItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{reservationController.create}" value="#{bundle.Save}" update="display,:ReservationListForm:datalist,:growl" oncomplete="handleSubmit(args,'ReservationCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ReservationCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

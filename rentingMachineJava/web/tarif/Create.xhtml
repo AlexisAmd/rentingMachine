@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TarifCreateDlg" widgetVar="TarifCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTarifTitle}">
+            <h:form id="TarifCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tarifController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTarifLabel_idTarif}" for="idTarif" />
+                        <p:inputText id="idTarif" value="#{tarifController.selected.idTarif}" title="#{bundle.CreateTarifTitle_idTarif}" required="true" requiredMessage="#{bundle.CreateTarifRequiredMessage_idTarif}"/>
+                        <p:outputLabel value="#{bundle.CreateTarifLabel_prix}" for="prix" />
+                        <p:inputText id="prix" value="#{tarifController.selected.prix}" title="#{bundle.CreateTarifTitle_prix}" required="true" requiredMessage="#{bundle.CreateTarifRequiredMessage_prix}"/>
+                        <p:outputLabel value="#{bundle.CreateTarifLabel_capacite}" for="capacite" />
+                        <p:selectBooleanCheckbox id="capacite" value="#{tarifController.selected.capacite}" required="true" requiredMessage="#{bundle.EditTarifRequiredMessage_capacite}"/>
+                        <p:outputLabel value="#{bundle.CreateTarifLabel_classe}" for="classe" />
+                        <p:inputText id="classe" value="#{tarifController.selected.classe}" title="#{bundle.CreateTarifTitle_classe}" required="true" requiredMessage="#{bundle.CreateTarifRequiredMessage_classe}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tarifController.create}" value="#{bundle.Save}" update="display,:TarifListForm:datalist,:growl" oncomplete="handleSubmit(args,'TarifCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TarifCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

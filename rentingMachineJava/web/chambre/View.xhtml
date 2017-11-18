@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ChambreViewDlg" widgetVar="ChambreViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewChambreTitle}">
+            <h:form id="ChambreViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{chambreController.selected != null}">
+                        <h:outputText value="#{bundle.ViewChambreLabel_idChambre}"/>
+                        <h:outputText value="#{chambreController.selected.idChambre}" title="#{bundle.ViewChambreTitle_idChambre}"/>
+                        <h:outputText value="#{bundle.ViewChambreLabel_etage}"/>
+                        <h:outputText value="#{chambreController.selected.etage}" title="#{bundle.ViewChambreTitle_etage}"/>
+                        <h:outputText value="#{bundle.ViewChambreLabel_numero}"/>
+                        <h:outputText value="#{chambreController.selected.numero}" title="#{bundle.ViewChambreTitle_numero}"/>
+                        <h:outputText value="#{bundle.ViewChambreLabel_nomChambre}"/>
+                        <h:outputText value="#{chambreController.selected.nomChambre}" title="#{bundle.ViewChambreTitle_nomChambre}"/>
+                        <h:outputText value="#{bundle.ViewChambreLabel_vignette}"/>
+                        <h:outputText value="#{chambreController.selected.vignette}" title="#{bundle.ViewChambreTitle_vignette}"/>
+                        <h:outputText value="#{bundle.ViewChambreLabel_idTarif}"/>
+                        <h:outputText value="#{chambreController.selected.idTarif}" title="#{bundle.ViewChambreTitle_idTarif}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ChambreViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
