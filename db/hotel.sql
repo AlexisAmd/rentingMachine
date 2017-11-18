@@ -23,7 +23,7 @@ CREATE TABLE Chambre (
 	numero tinyint(3) default NULL,
 	nomChambre varchar(30) default NULL,
 	idTarif smallint(6) default NULL,
-	vignette varchar(200) NOT NULL DEFAULT 'path',
+	vignette varchar(200) DEFAULT NULL,
 	PRIMARY KEY (idChambre)
 )ENGINE=innoDB DEFAULT charset=latin1;
 
