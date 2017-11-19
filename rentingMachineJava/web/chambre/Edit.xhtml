@@ -13,15 +13,20 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{chambreController.selected != null}">
                         <p:outputLabel value="#{bundle.EditChambreLabel_idChambre}" for="idChambre" />
-                        <p:inputText id="idChambre" value="#{chambreController.selected.idChambre}" title="#{bundle.EditChambreTitle_idChambre}" required="true" requiredMessage="#{bundle.EditChambreRequiredMessage_idChambre}"/>
-                        <p:outputLabel value="#{bundle.EditChambreLabel_etage}" for="etage" />
-                        <p:inputText id="etage" value="#{chambreController.selected.etage}" title="#{bundle.EditChambreTitle_etage}" />
-                        <p:outputLabel value="#{bundle.EditChambreLabel_numero}" for="numero" />
-                        <p:inputText id="numero" value="#{chambreController.selected.numero}" title="#{bundle.EditChambreTitle_numero}" />
+                        <p:inputText  disabled="true" id="idChambre" value="#{chambreController.selected.idChambre}" title="#{bundle.EditChambreTitle_idChambre}" required="true" requiredMessage="#{bundle.EditChambreRequiredMessage_idChambre}"/>
+                        
+                        <p:outputLabel  value="#{bundle.EditChambreLabel_etage}" for="etage" />
+                        <p:inputText disabled="true" id="etage" value="#{chambreController.selected.etage}" title="#{bundle.EditChambreTitle_etage}" />
+                        
+                        <p:outputLabel  value="#{bundle.EditChambreLabel_numero}" for="numero" />
+                        <p:inputText disabled="true"   id="numero" value="#{chambreController.selected.numero}" title="#{bundle.EditChambreTitle_numero}" />-->
+                        
                         <p:outputLabel value="#{bundle.EditChambreLabel_nomChambre}" for="nomChambre" />
                         <p:inputText id="nomChambre" value="#{chambreController.selected.nomChambre}" title="#{bundle.EditChambreTitle_nomChambre}" />
+                        
                         <p:outputLabel value="#{bundle.EditChambreLabel_vignette}" for="vignette" />
                         <p:inputText id="vignette" value="#{chambreController.selected.vignette}" title="#{bundle.EditChambreTitle_vignette}" required="true" requiredMessage="#{bundle.EditChambreRequiredMessage_vignette}"/>
+                        
                         <p:outputLabel value="#{bundle.EditChambreLabel_idTarif}" for="idTarif" />
                         <p:selectOneMenu id="idTarif" value="#{chambreController.selected.idTarif}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
@@ -30,7 +35,7 @@
                                            itemValue="#{idTarifItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{chambreController.update}" value="#{bundle.Save}" update="display,:ChambreListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ChambreEditDialog');"/>
+                    <p:commandButton actionListener="#{chambreController.update}" value="#{bundle.Save}" update="display,:ChambreListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ChambreEditDialog');" onclick="ChambreEditDialog.hide()"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ChambreEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
