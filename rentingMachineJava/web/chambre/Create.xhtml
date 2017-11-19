@@ -12,16 +12,21 @@
             <h:form id="ChambreCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{chambreController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateChambreLabel_idChambre}" for="idChambre" />
-                        <p:inputText id="idChambre" value="#{chambreController.selected.idChambre}" title="#{bundle.CreateChambreTitle_idChambre}" required="true" requiredMessage="#{bundle.CreateChambreRequiredMessage_idChambre}"/>
+<!--                        <p:outputLabel value="#{bundle.CreateChambreLabel_idChambre}" for="idChambre" />
+                        <p:inputText id="idChambre" value="#{chambreController.selected.idChambre}" title="#{bundle.CreateChambreTitle_idChambre}" required="true" requiredMessage="#{bundle.CreateChambreRequiredMessage_idChambre}"/>-->
+                        
                         <p:outputLabel value="#{bundle.CreateChambreLabel_etage}" for="etage" />
                         <p:inputText id="etage" value="#{chambreController.selected.etage}" title="#{bundle.CreateChambreTitle_etage}" />
+                        
                         <p:outputLabel value="#{bundle.CreateChambreLabel_numero}" for="numero" />
                         <p:inputText id="numero" value="#{chambreController.selected.numero}" title="#{bundle.CreateChambreTitle_numero}" />
+                        
                         <p:outputLabel value="#{bundle.CreateChambreLabel_nomChambre}" for="nomChambre" />
                         <p:inputText id="nomChambre" value="#{chambreController.selected.nomChambre}" title="#{bundle.CreateChambreTitle_nomChambre}" />
+                        
                         <p:outputLabel value="#{bundle.CreateChambreLabel_vignette}" for="vignette" />
-                        <p:inputText id="vignette" value="#{chambreController.selected.vignette}" title="#{bundle.CreateChambreTitle_vignette}" required="true" requiredMessage="#{bundle.CreateChambreRequiredMessage_vignette}"/>
+                        <p:inputText id="vignette" value="#{chambreController.selected.vignette}" title="#{bundle.CreateChambreTitle_vignette}" required="false" requiredMessage="#{bundle.CreateChambreRequiredMessage_vignette}"/>
+                        
                         <p:outputLabel value="#{bundle.CreateChambreLabel_idTarif}" for="idTarif" />
                         <p:selectOneMenu id="idTarif" value="#{chambreController.selected.idTarif}" >
                             <f:selectItems value="#{tarifController.itemsAvailableSelectOne}"

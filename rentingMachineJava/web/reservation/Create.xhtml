@@ -12,14 +12,18 @@
             <h:form id="ReservationCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{reservationController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateReservationLabel_idRerservation}" for="idRerservation" />
-                        <p:inputText id="idRerservation" value="#{reservationController.selected.idRerservation}" title="#{bundle.CreateReservationTitle_idRerservation}" required="true" requiredMessage="#{bundle.CreateReservationRequiredMessage_idRerservation}"/>
+<!--                        <p:outputLabel value="#{bundle.CreateReservationLabel_idRerservation}" for="idRerservation" />
+                        <p:inputText id="idRerservation" value="#{reservationController.selected.idRerservation}" title="#{bundle.CreateReservationTitle_idRerservation}" required="true" requiredMessage="#{bundle.CreateReservationRequiredMessage_idRerservation}"/>-->
+                        
                         <p:outputLabel value="#{bundle.CreateReservationLabel_checkInDate}" for="checkInDate" />
                         <p:calendar id="checkInDate" pattern="MM/dd/yyyy" value="#{reservationController.selected.checkInDate}" title="#{bundle.EditReservationTitle_checkInDate}"  showOn="button"/>
+                        
                         <p:outputLabel value="#{bundle.CreateReservationLabel_checkOutDate}" for="checkOutDate" />
                         <p:calendar id="checkOutDate" pattern="MM/dd/yyyy" value="#{reservationController.selected.checkOutDate}" title="#{bundle.EditReservationTitle_checkOutDate}"  showOn="button"/>
+                        
                         <p:outputLabel value="#{bundle.CreateReservationLabel_paye}" for="paye" />
                         <p:selectBooleanCheckbox id="paye" value="#{reservationController.selected.paye}" required="true" requiredMessage="#{bundle.EditReservationRequiredMessage_paye}"/>
+                        
                         <p:outputLabel value="#{bundle.CreateReservationLabel_idChambre}" for="idChambre" />
                         <p:selectOneMenu id="idChambre" value="#{reservationController.selected.idChambre}" required="true" requiredMessage="#{bundle.EditReservationRequiredMessage_idChambre}">
                             <f:selectItems value="#{chambreController.itemsAvailableSelectOne}"
@@ -33,7 +37,7 @@
                                            itemValue="#{idClientItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{reservationController.create}" value="#{bundle.Save}" update="display,:ReservationListForm:datalist,:growl" oncomplete="handleSubmit(args,'ReservationCreateDialog');"/>
+                    <p:commandButton actionListener="#{reservationController.create}" value="#{bundle.Save}" update="display,:ReservationListForm:datalist,:growl" oncomplete="handleSubmit(args,'ReservationCreateDialog');"  onclick="ReservationCreateDialog.hide()" />
                     <p:commandButton value="#{bundle.Cancel}" onclick="ReservationCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

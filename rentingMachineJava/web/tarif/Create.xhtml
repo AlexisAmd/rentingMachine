@@ -12,16 +12,18 @@
             <h:form id="TarifCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tarifController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateTarifLabel_idTarif}" for="idTarif" />
+<!--                        <p:outputLabel value="#{bundle.CreateTarifLabel_idTarif}" for="idTarif" />
                         <p:inputText id="idTarif" value="#{tarifController.selected.idTarif}" title="#{bundle.CreateTarifTitle_idTarif}" required="true" requiredMessage="#{bundle.CreateTarifRequiredMessage_idTarif}"/>
-                        <p:outputLabel value="#{bundle.CreateTarifLabel_prix}" for="prix" />
+                        <p:outputLabel value="#{bundle.CreateTarifLabel_prix}" for="prix" />-->
+                        
                         <p:inputText id="prix" value="#{tarifController.selected.prix}" title="#{bundle.CreateTarifTitle_prix}" required="true" requiredMessage="#{bundle.CreateTarifRequiredMessage_prix}"/>
                         <p:outputLabel value="#{bundle.CreateTarifLabel_capacite}" for="capacite" />
                         <p:selectBooleanCheckbox id="capacite" value="#{tarifController.selected.capacite}" required="true" requiredMessage="#{bundle.EditTarifRequiredMessage_capacite}"/>
+                        
                         <p:outputLabel value="#{bundle.CreateTarifLabel_classe}" for="classe" />
                         <p:inputText id="classe" value="#{tarifController.selected.classe}" title="#{bundle.CreateTarifTitle_classe}" required="true" requiredMessage="#{bundle.CreateTarifRequiredMessage_classe}"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{tarifController.create}" value="#{bundle.Save}" update="display,:TarifListForm:datalist,:growl" oncomplete="handleSubmit(args,'TarifCreateDialog');"/>
+                    <p:commandButton actionListener="#{tarifController.create}" value="#{bundle.Save}" update="display,:TarifListForm:datalist,:growl" oncomplete="handleSubmit(args,'TarifCreateDialog');" onclick="TarifCreateDialog.hide()"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="TarifCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
