@@ -12,16 +12,19 @@
             <h:form id="ClientCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{clientController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateClientLabel_idClient}" for="idClient" />
-                        <p:inputText id="idClient" value="#{clientController.selected.idClient}" title="#{bundle.CreateClientTitle_idClient}" required="true" requiredMessage="#{bundle.CreateClientRequiredMessage_idClient}"/>
+                        
+<!--                        <p:outputLabel value="#{bundle.CreateClientLabel_idClient}" for="idClient" />-->
+<!--                        <p:inputText id="idClient" value="#{clientController.selected.idClient}" title="#{bundle.CreateClientTitle_idClient}" required="false" requiredMessage="#{bundle.CreateClientRequiredMessage_idClient}"/>-->
                         <p:outputLabel value="#{bundle.CreateClientLabel_nom}" for="nom" />
                         <p:inputText id="nom" value="#{clientController.selected.nom}" title="#{bundle.CreateClientTitle_nom}" required="true" requiredMessage="#{bundle.CreateClientRequiredMessage_nom}"/>
+                       
                         <p:outputLabel value="#{bundle.CreateClientLabel_prenom}" for="prenom" />
                         <p:inputText id="prenom" value="#{clientController.selected.prenom}" title="#{bundle.CreateClientTitle_prenom}" />
+                       
                         <p:outputLabel value="#{bundle.CreateClientLabel_telephone}" for="telephone" />
                         <p:inputText id="telephone" value="#{clientController.selected.telephone}" title="#{bundle.CreateClientTitle_telephone}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{clientController.create}" value="#{bundle.Save}" update="display,:ClientListForm:datalist,:growl" oncomplete="handleSubmit(args,'ClientCreateDialog');"/>
+                    <p:commandButton  onclick="ClientCreateDialog.hide()" actionListener="#{clientController.create}" value="#{bundle.Save}" update="display,:ClientListForm:datalist,:growl" oncomplete="handleSubmit(args,'ClientCreateDialog'); "/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ClientCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
