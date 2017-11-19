@@ -74,6 +74,8 @@ public class Reservation implements Serializable {
     public Short getIdRerservation() {
         return idRerservation;
     }
+    
+
 
     public void setIdRerservation(Short idRerservation) {
         this.idRerservation = idRerservation;
@@ -141,7 +143,7 @@ public class Reservation implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Reservation[ idRerservation=" + idRerservation + " ]";
+        return idRerservation + " Chambre : " + this.getIdChambre() + " Client : " + this.getIdClient().toString();
     }
     
 }

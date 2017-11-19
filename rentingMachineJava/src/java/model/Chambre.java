@@ -146,7 +146,7 @@ public class Chambre implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Chambre[ idChambre=" + idChambre + " ]";
+        return "id :"+ idChambre + this.getNomChambre() +" "+ this.getIdTarif().getClasse();
     }
     
 }

@@ -136,7 +136,7 @@ public class Tarif implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Tarif[ idTarif=" + idTarif + " ]";
+        return idTarif + " "+this.getClasse() + " "+ this.getCapacite()+ " personnes";
     }
     
 }

@@ -133,7 +133,7 @@ public class Client implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Client[ idClient=" + idClient + " ]";
+        return idClient +" - " + this.getPrenom() + " "+ this.getNom();
     }
     
 }
