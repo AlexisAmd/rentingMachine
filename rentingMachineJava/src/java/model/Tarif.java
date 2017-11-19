@@ -140,7 +140,7 @@ public class Tarif implements Serializable {
 
     @Override
     public String toString() {
-        return idTarif + " "+this.getClasse() + " "+ this.getCapacite()+ " personnes";
+        return idTarif + " - "+this.getClasse() + " - "+ this.getCapacite()+ " personnes";
     }
     
 }
