@@ -146,7 +146,7 @@ public class Chambre implements Serializable {
 
     @Override
     public String toString() {
-        return "id :"+ idChambre + this.getNomChambre() +" "+ this.getIdTarif().getClasse();
+        return idChambre + " - "+ this.getIdTarif().getClasse()+" - "+  this.getNomChambre();
     }
     
 }
