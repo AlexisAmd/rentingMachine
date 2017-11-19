@@ -40,18 +40,22 @@ public class Tarif implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     @Basic(optional = false)
     @Column(nullable = false)
     private Short idTarif;
+    
     @Basic(optional = false)
     @NotNull
     @Column(nullable = false)
     private short prix;
+    
     @Basic(optional = false)
     @NotNull
     @Column(nullable = false)
-    private boolean capacite;
-    @Basic(optional = false)
+    @Size(min = 1, max = 8)
+    private Short capacite;
+//    @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
     @Column(nullable = false, length = 30)
@@ -66,7 +70,7 @@ public class Tarif implements Serializable {
         this.idTarif = idTarif;
     }
 
-    public Tarif(Short idTarif, short prix, boolean capacite, String classe) {
+    public Tarif(Short idTarif, short prix, short capacite, String classe) {
         this.idTarif = idTarif;
         this.prix = prix;
         this.capacite = capacite;
@@ -89,11 +93,11 @@ public class Tarif implements Serializable {
         this.prix = prix;
     }
 
-    public boolean getCapacite() {
+    public Short getCapacite() {
         return capacite;
     }
 
-    public void setCapacite(boolean capacite) {
+    public void setCapacite(Short capacite) {
         this.capacite = capacite;
     }
 
