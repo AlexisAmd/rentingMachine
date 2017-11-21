@@ -12,18 +12,40 @@
             <h:form id="ChambreViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{chambreController.selected != null}">
+                        
                         <h:outputText value="#{bundle.ViewChambreLabel_idChambre}"/>
                         <h:outputText value="#{chambreController.selected.idChambre}" title="#{bundle.ViewChambreTitle_idChambre}"/>
+                        
                         <h:outputText value="#{bundle.ViewChambreLabel_etage}"/>
                         <h:outputText value="#{chambreController.selected.etage}" title="#{bundle.ViewChambreTitle_etage}"/>
+                        
                         <h:outputText value="#{bundle.ViewChambreLabel_numero}"/>
                         <h:outputText value="#{chambreController.selected.numero}" title="#{bundle.ViewChambreTitle_numero}"/>
+                        
                         <h:outputText value="#{bundle.ViewChambreLabel_nomChambre}"/>
                         <h:outputText value="#{chambreController.selected.nomChambre}" title="#{bundle.ViewChambreTitle_nomChambre}"/>
-                        <h:outputText value="#{bundle.ViewChambreLabel_vignette}"/>
-                        <h:outputText value="#{chambreController.selected.vignette}" title="#{bundle.ViewChambreTitle_vignette}"/>
+                        
                         <h:outputText value="#{bundle.ViewChambreLabel_idTarif}"/>
                         <h:outputText value="#{chambreController.selected.idTarif}" title="#{bundle.ViewChambreTitle_idTarif}"/>
+                    
+                        <h:outputText value="#{bundle.ViewTarifLabel_classe}"/>
+                        <h:outputText value="#{chambreController.selected.idTarif.classe}" title="#{bundle.ViewTarifTitle_classe}"/>
+                        
+                        <h:outputText value="#{bundle.ViewTarifLabel_capacite}"/>
+                        <h:outputText value="#{chambreController.selected.idTarif.capacite}" title="#{bundle.ViewTarifTitle_capacite}"/>
+                    
+                        <h:outputText value="#{bundle.ViewChambreLabel_disponible}"/>
+                        <h:selectBooleanCheckbox disabled="true" value="#{chambreController.selected.isAvailable()}" title="#{bundle.ViewChambreTitle_disponible}"/>
+                        
+                        <h:outputText value="#{bundle.ViewClientLabel_idClient}"/>
+                        <h:outputText value="#{chambreController.selected.getCustomerId()}" title="#{bundle.ViewClientTitle_idClient}"/>
+                    
+                        <h:outputText value="#{bundle.ViewClientLabel_nom}"/>
+                        <h:outputText value="#{chambreController.selected.getCustomerName()}" title="#{bundle.ViewClientTitle_nom}"/>
+                    
+                        <h:outputText value="#{bundle.ViewClientLabel_prenom}"/>
+                        <h:outputText value="#{chambreController.selected.getCustomerPrenom()}" title="#{bundle.ViewClientTitle_prenom}"/>
+                    
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="ChambreViewDialog.hide()"/>
                 </h:panelGroup>
