@@ -75,16 +75,12 @@ public class Chambre implements Serializable {
         //recuperer toutes les resea 
         Collection<Reservation> c = this.getReservationCollection();
         //iterate over the collectin of res
-        for (Reservation r : c) {
-            //si la date de debut est inferieure a la date actuelle
-            if (r.getCheckInDate().compareTo(date) <= 0) {
-                // t que la date de de fin est superieure ou non renseignée 
-                if (r.getCheckOutDate() == null || date.compareTo(r.getCheckOutDate()) <= 0) {
-                    //alors
-                    return false;
-                }
-            }
-        }
+        //si la date de debut est inferieure a la date actuelle
+        // t que la date de de fin est superieure ou non renseignée
+        //alors
+        if (!c.stream().filter((r) -> (r.getCheckInDate().compareTo(date) <= 0)).noneMatch((r) -> (r.getCheckOutDate() == null || date.compareTo(r.getCheckOutDate()) <= 0))) {
+            return false;
+        } 
         return true;
     }
 
@@ -107,29 +103,29 @@ public class Chambre implements Serializable {
         return null;
     }
 
-//    public String getCustomerId() {
-//        if (!this.isAvailable()) {
-//            Client c = this.getCustomer();
-//            return c.getIdClient().toString();
-//        }
-//        return "";
-//    }
-//
-//    public String getCustomerName() {
-//        if (!this.isAvailable()) {
-//            Client c = this.getCustomer();
-//            return c.getNom();
-//        }
-//        return "";
-//    }
-//
-//    public String getCustomerPrenom() {
-//        if (!this.isAvailable()) {
-//            Client c = this.getCustomer();
-//            return c.getPrenom();
-//        }
-//        return "";
-//    }
+    public String getCustomerId() {
+        if (!this.isAvailable()) {
+            Client c = this.getCustomer();
+            return c.getIdClient().toString();
+        }
+        return "";
+    }
+
+    public String getCustomerName() {
+        if (!this.isAvailable()) {
+            Client c = this.getCustomer();
+            return c.getNom();
+        }
+        return "";
+    }
+
+    public String getCustomerPrenom() {
+        if (!this.isAvailable()) {
+            Client c = this.getCustomer();
+            return c.getPrenom();
+        }
+        return "";
+    }
 
     public Chambre() {
     }
