@@ -12,23 +12,45 @@
             <h:form id="ReservationViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{reservationController.selected != null}">
+                        
                         <h:outputText value="#{bundle.ViewReservationLabel_idRerservation}"/>
                         <h:outputText value="#{reservationController.selected.idRerservation}" title="#{bundle.ViewReservationTitle_idRerservation}"/>
+                        
+                        <h:outputText value="#{bundle.ViewReservationLabel_idChambre}"/>
+                        <h:outputText value="#{reservationController.selected.idChambre}" title="#{bundle.ViewReservationTitle_idChambre}"/>
+                        
+                        <h:outputText value="#{bundle.ViewChambreLabel_nomChambre}"/>
+                        <h:outputText value="#{reservationController.selected.idChambre.nomChambre}" title="#{bundle.ViewChambreTitle_nomChambre}"/>
+                              
+                        <h:outputText value="#{bundle.ViewChambreLabel_etage}"/>
+                        <h:outputText value="#{reservationController.selected.idChambre.etage}" title="#{bundle.ViewChambreTitle_etage}"/>
+                        
+                        <h:outputText value="#{bundle.ViewChambreLabel_numero}"/>
+                        <h:outputText value="#{reservationController.selected.idChambre.numero}" title="#{bundle.ViewChambreTitle_numero}"/>
+                          
                         <h:outputText value="#{bundle.ViewReservationLabel_checkInDate}"/>
                         <h:outputText value="#{reservationController.selected.checkInDate}" title="#{bundle.ViewReservationTitle_checkInDate}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />
                         </h:outputText>
+                        
                         <h:outputText value="#{bundle.ViewReservationLabel_checkOutDate}"/>
                         <h:outputText value="#{reservationController.selected.checkOutDate}" title="#{bundle.ViewReservationTitle_checkOutDate}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewReservationLabel_paye}"/>
-                        <p:selectBooleanCheckbox value="#{reservationController.selected.paye}" disabled="true"/>
-                        <h:outputText value="#{bundle.ViewReservationLabel_idChambre}"/>
-                        <h:outputText value="#{reservationController.selected.idChambre}" title="#{bundle.ViewReservationTitle_idChambre}"/>
+                        
                         <h:outputText value="#{bundle.ViewReservationLabel_idClient}"/>
                         <h:outputText value="#{reservationController.selected.idClient}" title="#{bundle.ViewReservationTitle_idClient}"/>
-                    </p:panelGrid>
+                    
+                        <h:outputText value="#{bundle.ViewClientLabel_nom}"/>
+                        <h:outputText value="#{reservationController.selected.idClient.nom}" title="#{bundle.ViewClientTitle_nom}"/>
+                    
+                        <h:outputText value="#{bundle.ViewClientLabel_prenom}"/>
+                        <h:outputText value="#{reservationController.selected.idClient.prenom}" title="#{bundle.ViewClientTitle_prenom}"/>
+                                            
+                        <h:outputText value="#{bundle.ViewReservationLabel_paye}"/>
+                        <p:selectBooleanCheckbox value="#{reservationController.selected.paye}" disabled="true"/>
+                        
+                        </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="ReservationViewDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

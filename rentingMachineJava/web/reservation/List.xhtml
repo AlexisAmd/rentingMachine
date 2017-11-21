@@ -29,10 +29,11 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListReservationTitle_idRerservation}"/>
+                                <h:outputText value="#{bundle.ListChambreTitle_nomChambre}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idRerservation}"/>
+                            <h:outputText value="#{item.idChambre.nomChambre}"/>
                         </p:column>
+                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListReservationTitle_checkInDate}"/>
@@ -41,6 +42,7 @@
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
                         </p:column>
+                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListReservationTitle_checkOutDate}"/>
@@ -49,24 +51,21 @@
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
                         </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClientTitle_nom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idClient.nom}"/>
+                        </p:column>
+                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListReservationTitle_paye}"/>
                             </f:facet>
                             <p:selectBooleanCheckbox value="#{item.paye}" disabled="true"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListReservationTitle_idChambre}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idChambre}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListReservationTitle_idClient}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idClient}"/>
-                        </p:column>
+                        </p:column>                        
+                        
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{reservationController.prepareCreate}" update=":ReservationCreateForm" oncomplete="PF('ReservationCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":ReservationViewForm" oncomplete="PF('ReservationViewDialog').show()" disabled="#{empty reservationController.selected}"/>
