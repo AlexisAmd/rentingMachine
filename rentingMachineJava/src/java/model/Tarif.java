@@ -63,9 +63,7 @@ public class Tarif implements Serializable {
     @OneToMany(mappedBy = "idTarif")
     private Collection<Chambre> chambreCollection;
 
-    public Tarif() {
-    }
-
+    public Tarif() {}
     public Tarif(Short idTarif) {
         this.idTarif = idTarif;
     }
