@@ -21,8 +21,14 @@
                         <p:outputLabel value="#{bundle.EditReservationLabel_checkOutDate}" for="checkOutDate" />
                         <p:calendar id="checkOutDate" pattern="MM/dd/yyyy" value="#{reservationController.selected.checkOutDate}" title="#{bundle.EditReservationTitle_checkOutDate}"  showOn="button"/>
                         
-                        <p:outputLabel value="#{bundle.EditReservationLabel_paye}" for="paye" />
-                        <p:selectBooleanCheckbox id="paye" value="#{reservationController.selected.paye}" required="true" requiredMessage="#{bundle.EditReservationRequiredMessage_paye}"/>
+                        <p:outputLabel rendered="#{reservationController.selected.paye}" value="#{bundle.EditReservationLabel_paye}" for="paye" />
+                        <p:outputLabel rendered="#{!reservationController.selected.paye}" value="#{bundle.EditReservationLabel_paye}" for="paye_t" />
+     
+                        
+                        
+                        
+                        <p:selectBooleanCheckbox id="paye" rendered="#{reservationController.selected.paye}" disabled="true"  value="#{reservationController.selected.paye}"  requiredMessage="#{bundle.EditReservationRequiredMessage_paye}"/>
+                        <p:selectBooleanCheckbox id="paye_t" rendered="#{!reservationController.selected.paye}"   value="#{reservationController.selected.paye}" required="true" requiredMessage="#{bundle.EditReservationRequiredMessage_paye}"/>
                         
                         <p:outputLabel value="#{bundle.EditReservationLabel_idChambre}" for="idChambre" />
                         <p:selectOneMenu disabled="true" id="idChambre" value="#{reservationController.selected.idChambre}" required="true" requiredMessage="#{bundle.EditReservationRequiredMessage_idChambre}">
