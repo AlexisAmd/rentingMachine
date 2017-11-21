@@ -5,8 +5,17 @@
  */
 package model;
 
+import controller.ReservationController;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import static java.time.temporal.TemporalQueries.localDate;
 import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -59,6 +68,27 @@ public class Chambre implements Serializable {
     @JoinColumn(name = "idTarif", referencedColumnName = "idTarif")
     @ManyToOne
     private Tarif idTarif;
+   
+
+    
+    public boolean isAvailable() {
+        //recuperation de la date d'ajd
+        Date date = new Date();
+        //recuperer toutes les resea 
+        Collection<Reservation> c = this.getReservationCollection();
+        //iterate over the collectin of res
+        for (Reservation r : c) {
+            //si la date de debut est inferieure a la date actuelle
+            if (r.getCheckInDate().compareTo(date) <= 0) {
+                // t que la date de de fin est superieure ou non renseignée 
+                if (r.getCheckOutDate() == null || date.compareTo(r.getCheckOutDate()) <= 0) {
+                    //alors
+                    return false;
+                }
+            }  
+        }        
+       return true;
+    }
 
     public Chambre() {
     }
