@@ -12,14 +12,22 @@
             <h:form id="TarifViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tarifController.selected != null}">
+                        
                         <h:outputText value="#{bundle.ViewTarifLabel_idTarif}"/>
                         <h:outputText value="#{tarifController.selected.idTarif}" title="#{bundle.ViewTarifTitle_idTarif}"/>
+                        
                         <h:outputText value="#{bundle.ViewTarifLabel_prix}"/>
                         <h:outputText value="#{tarifController.selected.prix}" title="#{bundle.ViewTarifTitle_prix}"/>
+                        
                         <h:outputText value="#{bundle.ViewTarifLabel_capacite}"/>
-                        <p:selectBooleanCheckbox value="#{tarifController.selected.capacite}" disabled="true"/>
+                        <h:outputText value="#{tarifController.selected.capacite}" title="#{bundle.ViewTarifTitle_capacite}"/>
+                        
                         <h:outputText value="#{bundle.ViewTarifLabel_classe}"/>
                         <h:outputText value="#{tarifController.selected.classe}" title="#{bundle.ViewTarifTitle_classe}"/>
+                    
+                        <h:outputText value="#{bundle.ViewTarifLabel_nombreDeChambre}"/>
+                        <h:outputText value="#{tarifController.selected.getNombreDeChambre()}" title="#{bundle.ViewTarifTitle_nombreDeChambre}"/>
+                    
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="TarifViewDialog.hide()"/>
                 </h:panelGroup>

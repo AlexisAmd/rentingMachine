@@ -145,7 +145,7 @@ public class Tarif implements Serializable {
      *
      * @return nombre de chambre dont le tarif est le même que le tarif (classe, capacité, prix etc..) de cette instance de la classe tarif
      */
-    public short getNombreDeChambre() {
+    public String getNombreDeChambre() {
         Collection<Chambre> chambres = this.chambreCollection;
         short cpt = 0;
         for (Chambre c : chambres) {
@@ -153,7 +153,7 @@ public class Tarif implements Serializable {
                 cpt++;
             }
         }
-        return cpt;
+        return Short.toString(cpt);
     }
 
 }
