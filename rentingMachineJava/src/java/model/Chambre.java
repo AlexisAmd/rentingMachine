@@ -68,9 +68,7 @@ public class Chambre implements Serializable {
     @JoinColumn(name = "idTarif", referencedColumnName = "idTarif")
     @ManyToOne
     private Tarif idTarif;
-   
 
-    
     public boolean isAvailable() {
         //recuperation de la date d'ajd
         Date date = new Date();
@@ -85,13 +83,13 @@ public class Chambre implements Serializable {
                     //alors
                     return false;
                 }
-            }  
-        }        
-       return true;
+            }
+        }
+        return true;
     }
-       
-    public String getCustomer() {
-            //recuperation de la date d'ajd
+
+    public Client getCustomer() {
+        //recuperation de la date d'ajd
         Date date = new Date();
         //recuperer toutes les resea 
         Collection<Reservation> c = this.getReservationCollection();
@@ -102,12 +100,36 @@ public class Chambre implements Serializable {
                 // t que la date de de fin est superieure ou non renseignée 
                 if (r.getCheckOutDate() == null || date.compareTo(r.getCheckOutDate()) <= 0) {
                     //alors
-                    return r.getIdClient().toString();
+                    return r.getIdClient();
                 }
-            }  
-        }   
-        return "";
+            }
+        }
+        return null;
     }
+
+//    public String getCustomerId() {
+//        if (!this.isAvailable()) {
+//            Client c = this.getCustomer();
+//            return c.getIdClient().toString();
+//        }
+//        return "";
+//    }
+//
+//    public String getCustomerName() {
+//        if (!this.isAvailable()) {
+//            Client c = this.getCustomer();
+//            return c.getNom();
+//        }
+//        return "";
+//    }
+//
+//    public String getCustomerPrenom() {
+//        if (!this.isAvailable()) {
+//            Client c = this.getCustomer();
+//            return c.getPrenom();
+//        }
+//        return "";
+//    }
 
     public Chambre() {
     }
@@ -195,7 +217,7 @@ public class Chambre implements Serializable {
 
     @Override
     public String toString() {
-        return idChambre + " - "+ this.getIdTarif().getClasse()+" - "+  this.getNomChambre();
+        return idChambre + " - " + this.getIdTarif().getClasse() + " - " + this.getNomChambre();
     }
-    
+
 }
