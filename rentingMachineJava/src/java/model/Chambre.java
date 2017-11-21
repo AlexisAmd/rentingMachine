@@ -89,6 +89,25 @@ public class Chambre implements Serializable {
         }        
        return true;
     }
+       
+    public String getCustomer() {
+            //recuperation de la date d'ajd
+        Date date = new Date();
+        //recuperer toutes les resea 
+        Collection<Reservation> c = this.getReservationCollection();
+        //iterate over the collectin of res
+        for (Reservation r : c) {
+            //si la date de debut est inferieure a la date actuelle
+            if (r.getCheckInDate().compareTo(date) <= 0) {
+                // t que la date de de fin est superieure ou non renseignée 
+                if (r.getCheckOutDate() == null || date.compareTo(r.getCheckOutDate()) <= 0) {
+                    //alors
+                    return r.getIdClient().toString();
+                }
+            }  
+        }   
+        return "";
+    }
 
     public Chambre() {
     }
