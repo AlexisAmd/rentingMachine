@@ -19,12 +19,12 @@
                         <p:inputText id="prix" value="#{tarifController.selected.prix}" title="#{bundle.EditTarifTitle_prix}" required="true" requiredMessage="#{bundle.EditTarifRequiredMessage_prix}"/>
                         
                         <p:outputLabel value="#{bundle.EditTarifLabel_capacite}" for="capacite" />
-                        <p:selectBooleanCheckbox id="capacite" value="#{tarifController.selected.capacite}" required="true" requiredMessage="#{bundle.EditTarifRequiredMessage_capacite}"/>
+                        <p:inputText id="capacite" value="#{tarifController.selected.capacite}" required="true" requiredMessage="#{bundle.EditTarifRequiredMessage_capacite}"/>
                         
                         <p:outputLabel value="#{bundle.EditTarifLabel_classe}" for="classe" />
                         <p:inputText id="classe" value="#{tarifController.selected.classe}" title="#{bundle.EditTarifTitle_classe}" required="true" requiredMessage="#{bundle.EditTarifRequiredMessage_classe}"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{tarifController.update}" value="#{bundle.Save}" update="display,:TarifListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TarifEditDialog');"/>
+                    <p:commandButton actionListener="#{tarifController.update}" value="#{bundle.Save}" update="display,:TarifListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TarifEditDialog');" onclick="TarifEditDialog.hide()"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="TarifEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

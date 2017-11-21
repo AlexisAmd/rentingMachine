@@ -27,11 +27,28 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
+                        <!--                        <p:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="#{bundle.ListTarifTitle_idTarif}"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.idTarif}"/>
+                                                </p:column>
+                                                <p:column>-->
+
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTarifTitle_idTarif}"/>
+                                <h:outputText value="#{bundle.ListTarifTitle_classe}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idTarif}"/>
+                            <h:outputText value="#{item.classe}"/>
+                        </p:column>
+
+
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTarifTitle_capacite}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.capacite}" />
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -41,16 +58,12 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTarifTitle_capacite}"/>
+                                <h:outputText value="#{bundle.ListTarifTitle_nombreDeChambre}"/>
                             </f:facet>
-                            <p:selectBooleanCheckbox value="#{item.capacite}" disabled="true"/>
+                            <h:outputText value="#{item.getNombreDeChambre()}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTarifTitle_classe}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.classe}"/>
-                        </p:column>
+
+
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{tarifController.prepareCreate}" update=":TarifCreateForm" oncomplete="PF('TarifCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":TarifViewForm" oncomplete="PF('TarifViewDialog').show()" disabled="#{empty tarifController.selected}"/>

@@ -40,16 +40,16 @@ public class Tarif implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     @Basic(optional = false)
     @Column(nullable = false)
     private Short idTarif;
-    
+
     @Basic(optional = false)
     @NotNull
     @Column(nullable = false)
     private short prix;
-    
+
     @Basic(optional = false)
     @NotNull
     @Column(nullable = false)
@@ -140,7 +140,22 @@ public class Tarif implements Serializable {
 
     @Override
     public String toString() {
-        return idTarif + " - "+this.getClasse() + " - "+ this.getCapacite()+ " personnes";
+        return idTarif + " - " + this.getClasse() + " - " + this.getCapacite() + " personnes";
     }
-    
+
+    /**
+     *
+     * @return nombre de chambre dont le tarif est le même que le tarif (classe, capacité, prix etc..) de cette instance de la classe tarif
+     */
+    public short getNombreDeChambre() {
+        Collection<Chambre> chambres = this.chambreCollection;
+        short cpt = 0;
+        for (Chambre c : chambres) {
+            if (c.getIdTarif().idTarif.equals(this.idTarif)) {
+                cpt++;
+            }
+        }
+        return cpt;
+    }
+
 }
