@@ -26,6 +26,33 @@
 
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+                        
+                          <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChambreTitle_etage}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.etage}"/>
+                        </p:column>
+                           <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChambreTitle_numero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numero}"/>
+                        </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListChambreTitle_nomChambre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomChambre}"/>
+                        </p:column>
+                        
+                         <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTarifTitle_classe}"/>
+                            </f:facet>
+                             <h:outputText value="#{item.idTarif.classe}"/>
+                        </p:column>
 
                         <p:column>
                             <f:facet name="header">
@@ -33,36 +60,24 @@
                             </f:facet>
                             <h:outputText value="#{item.idChambre}"/>
                         </p:column>
+
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListChambreTitle_etage}"/>
+                                
+                                <h:outputText value="#{bundle.ListTarifTitle_capacite}"/>
                             </f:facet>
-                            <h:outputText value="#{item.etage}"/>
+                            <h:outputText value="#{item.idTarif.capacite}"/>
                         </p:column>
-                        <p:column>
+                        
+                                                <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListChambreTitle_numero}"/>
+                                
+                                <h:outputText value="#{bundle.ListTarifTitle_capacite}"/>
                             </f:facet>
-                            <h:outputText value="#{item.numero}"/>
+                                                    //TODO ajouter method get libre occupe chambre.getavailable
+                                  <h:selectBooleanCheckbox disabled="true" value="#{item.idTarif.}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListChambreTitle_nomChambre}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomChambre}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListChambreTitle_vignette}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.vignette}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListChambreTitle_idTarif}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idTarif}"/>
-                        </p:column>
+                       
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{chambreController.prepareCreate}" update=":ChambreCreateForm" oncomplete="PF('ChambreCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":ChambreViewForm" oncomplete="PF('ChambreViewDialog').show()" disabled="#{empty chambreController.selected}"/>
