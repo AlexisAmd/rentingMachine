@@ -4,6 +4,32 @@
 * Copyright 2011-2017 Twitter, Inc.
 * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
 */
+.ui-widget{
+    font-family: Roboto, Helvetica;
+    font-size: 12px;
+}
+
+.ui-widget-content a{
+    color: #007bff;
+    border-radius: 0.25rem;
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 18px;
+}
+
+
+
+.ui-layout-unit{
+    padding: 0;
+}
+.h-auto{
+    height: auto;
+    min-height: 100px;
+}
+/*@overidere*/
+.ui-corner-all{
+    border: none;
+}
 .alert {
   padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
