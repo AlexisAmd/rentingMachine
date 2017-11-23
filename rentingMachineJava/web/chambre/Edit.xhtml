@@ -28,7 +28,7 @@
                         <p:inputText id="vignette" value="#{chambreController.selected.vignette}" title="#{bundle.EditChambreTitle_vignette}" required="true" requiredMessage="#{bundle.EditChambreRequiredMessage_vignette}"/>
                         
                         <p:outputLabel value="#{bundle.EditChambreLabel_idTarif}" for="idTarif" />
-                        <p:selectOneMenu id="idTarif" value="#{chambreController.selected.idTarif}" >
+                        <p:selectOneMenu id="idTarif" value="#{chambreController.selected.idTarif}" filter="true" filterMatchMode="contains" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{tarifController.itemsAvailableSelectOne}"
                                            var="idTarifItem"

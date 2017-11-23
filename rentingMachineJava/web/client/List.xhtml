@@ -27,27 +27,27 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+                        <p:column filterBy="#{item.idClient}" sortBy="#{item.idClient}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListClientTitle_idClient}"/>
                             </f:facet>
                             <h:outputText value="#{item.idClient}"/>
                         </p:column>
                        
-                        <p:column>
+                        <p:column filterBy="#{item.nom}" sortBy="#{item.nom}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListClientTitle_nom}"/>
                             </f:facet>
                             <h:outputText value="#{item.nom}"/>
                         </p:column>
                        
-                        <p:column>
+                        <p:column filterBy="#{item.prenom}" sortBy="#{item.prenom}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListClientTitle_prenom}"/>
                             </f:facet>
                             <h:outputText value="#{item.prenom}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="#{item.telephone}" sortBy="#{item.telephone}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListClientTitle_telephone}"/>
                             </f:facet>

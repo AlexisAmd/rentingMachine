@@ -35,7 +35,7 @@
                                                 </p:column>
                                                 <p:column>-->
 
-                        <p:column>
+                        <p:column filterBy="#{item.classe}" sortBy="#{item.classe}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTarifTitle_classe}"/>
                             </f:facet>
@@ -44,19 +44,21 @@
 
 
 
-                        <p:column>
+                        <p:column filterBy="#{item.capacite}" sortBy="#{item.capacite}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTarifTitle_capacite}"/>
                             </f:facet>
                             <h:outputText value="#{item.capacite}" />
                         </p:column>
-                        <p:column>
+                        
+                        <p:column filterBy="#{item.prix}" sortBy="#{item.prix}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTarifTitle_prix}"/>
                             </f:facet>
                             <h:outputText value="#{item.prix}"/>
                         </p:column>
-                        <p:column>
+                        
+                        <p:column sortBy="#{item.getNombreDeChambre()}" filterBy="#{item.getNombreDeChambre()}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTarifTitle_nombreDeChambre}"/>
                             </f:facet>

@@ -13,8 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{clientController.selected != null}">
                         
-<!--                        <p:outputLabel value="#{bundle.CreateClientLabel_idClient}" for="idClient" />-->
-<!--                        <p:inputText id="idClient" value="#{clientController.selected.idClient}" title="#{bundle.CreateClientTitle_idClient}" required="false" requiredMessage="#{bundle.CreateClientRequiredMessage_idClient}"/>-->
+
                         <p:outputLabel value="#{bundle.CreateClientLabel_nom}" for="nom" />
                         <p:inputText id="nom" value="#{clientController.selected.nom}" title="#{bundle.CreateClientTitle_nom}" required="true" requiredMessage="#{bundle.CreateClientRequiredMessage_nom}"/>
                        
