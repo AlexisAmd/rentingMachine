@@ -15,7 +15,7 @@
 
         <ui:define name="body">
             <h:form id="ReservationListForm">
-                <p:panel header="#{bundle.ListReservationTitle}">
+                <p:panel >
                     <p:dataTable id="datalist" value="#{reservationController.items}" var="item"
                                  selectionMode="single" selection="#{reservationController.selected}"
                                  paginator="true"
