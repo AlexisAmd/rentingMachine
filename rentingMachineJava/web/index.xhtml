@@ -33,6 +33,7 @@
                             
                         <div class="col">
                             <p:outputLabel value="Les départs du jour"></p:outputLabel>
+                            <h:form>
                             <p:panel >
                                 <p:dataTable id="datalist" value="#{reservationController.checkOutToday}" var="item"
                                  selectionMode="single" selection="#{reservationController.selected}"
@@ -61,7 +62,7 @@
                         
                         <p:column sortBy="#{item.paye}" >
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListReservationTitle_paye}"/>
+                                <h:outputText value="#{bundle.ListReservationTitle_paye}" />
                             </f:facet>
                             <p:selectBooleanCheckbox value="#{item.paye}" disabled="true"/>
                         </p:column>                        
@@ -69,6 +70,7 @@
                         
                     </p:dataTable>
                 </p:panel>
+                                </h:form>
                         </div>
                     </div>
                     <div class="row">
