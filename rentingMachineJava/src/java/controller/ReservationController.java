@@ -25,6 +25,10 @@ import javax.faces.convert.FacesConverter;
 @SessionScoped
 public class ReservationController implements Serializable {
 
+    public static Object getReservation() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @EJB
     private facade.ReservationFacade ejbFacade;
     private List<Reservation> items = null;
@@ -163,9 +167,9 @@ public class ReservationController implements Serializable {
         }
 
     }
-    
-            public int getNbrAvailable(){
-       
+
+    public int getNbrAvailable() {
+
         //compteur a 0
         int nbDep = 0;
         //recup de la date d'ajd
@@ -174,45 +178,46 @@ public class ReservationController implements Serializable {
         //itere sur la collection de resa
         for (Reservation r : this.ejbFacade.findAll()) {
             //si la date de depart est egale a la date actuelle
-            if (r.getCheckOutDate().getMonth() == date.getMonth() &&r.getCheckOutDate().getDate()== date.getDate()) {
+            if (r.getCheckOutDate().getMonth() == date.getMonth() && r.getCheckOutDate().getDate() == date.getDate()) {
                 nbDep++;
-            }  
+            }
         }
         //return le nb de departs ajd
         return nbDep;
     }
-            
-        public List<Reservation> getCheckOutToday() {
-            List<Reservation> rtd = new ArrayList<Reservation>();
-            Date date = new Date();
+
+    public List<Reservation> getCheckOutToday() {
+        List<Reservation> rtd = new ArrayList<Reservation>();
+        Date date = new Date();
         int d = date.getDate();
         int m = date.getMonth();
         int y = date.getYear();
-       
+
         List<Reservation> rs = getFacade().findAll();
-        for (Reservation r : rs){
-                Date c = r.getCheckOutDate();
-            if (c.getYear() == y && c.getMonth() == m && c.getDate() ==d){
+        for (Reservation r : rs) {
+            Date c = r.getCheckOutDate();
+            if (c.getYear() == y && c.getMonth() == m && c.getDate() == d) {
                 rtd.add(r);
-                
-            }                
+
+            }
         }
         return rtd;
     }
-       public List<Reservation> getCheckInToday() {
-            List<Reservation> rtd = new ArrayList<Reservation>();
-            Date date = new Date();
+
+    public List<Reservation> getCheckInToday() {
+        List<Reservation> rtd = new ArrayList<Reservation>();
+        Date date = new Date();
         int d = date.getDate();
         int m = date.getMonth();
         int y = date.getYear();
-       
+
         List<Reservation> rs = getFacade().findAll();
-        for (Reservation r : rs){
-                Date c = r.getCheckInDate();
-            if (c.getYear() == y && c.getMonth() == m && c.getDate() ==d){
+        for (Reservation r : rs) {
+            Date c = r.getCheckInDate();
+            if (c.getYear() == y && c.getMonth() == m && c.getDate() == d) {
                 rtd.add(r);
-                
-            }                
+
+            }
         }
         return rtd;
     }
