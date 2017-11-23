@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -22,6 +23,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -58,6 +60,26 @@ public class Reservation implements Serializable {
     @JoinColumn(name = "idClient", referencedColumnName = "idClient", nullable = false)
     @ManyToOne(optional = false)
     private Client idClient;
+    private int nbDep;
+    private Collection<Reservation> reservationCollection;
+    
+    public int isFreeToday(){
+        //compteur a 0
+        nbDep = 0;
+        //recup de la date d'ajd
+        Date date = new Date();
+        //recup de tous les checkout des resa
+        Collection<Reservation> c = this.getReservationCollection();
+        //itere sur la collection de resa
+        for (Reservation r : c) {
+            //si la date de depart est egale a la date actuelle
+            if (r.getCheckOutDate().compareTo(date) == 0) {
+                nbDep++;
+            }  
+        }
+        //return le nb de departs ajd
+        return nbDep;
+    }
 
     public Reservation() {
     }
@@ -119,6 +141,15 @@ public class Reservation implements Serializable {
 
     public void setIdClient(Client idClient) {
         this.idClient = idClient;
+    }
+    
+    @XmlTransient
+    public Collection<Reservation> getReservationCollection() {
+        return reservationCollection;
+    }
+
+    public void setReservationCollection(Collection<Reservation> reservationCollection) {
+        this.reservationCollection = reservationCollection;
     }
 
     @Override
