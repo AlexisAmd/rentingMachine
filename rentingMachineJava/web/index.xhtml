@@ -1,46 +1,35 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core">
-    <h:head>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
     <ui:include src="inc/head.xhtml" />
-    </h:head>
 
     <h:body>
+        <p:growl id="growl" life="3000" />
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="100">
+                <ui:include  src="inc/header.xhtml" />
+            </p:layoutUnit>
 
-        <ui:include src="inc/header.xhtml" />
 
-        <div class="container h-100 border border-primary rounded" style="min-height: 200px;">
+            <p:layoutUnit position="center">
+                        <div class="container h-auto border border-primary rounded nopadding">
             <div class="row">
                 <div class="col">
-                    <!-- contenu de la page ici ! -->
+                <ui:insert name="body"/>
                 </div>
             </div>
-        </div>
-        <br />
-        <h:link outcome="/chambre/List" value="Show All Chambre Items"/>
-        <br />
-        <h:link outcome="/client/List" value="Show All Client Items"/>
-        <br />
-        <h:link outcome="/reservation/List" value="Show All Reservation Items"/>
-        <br />
-        <h:link outcome="/tarif/List" value="Show All Tarif Items"/>
+                        </div>
+            </p:layoutUnit>
+                        <p:layoutUnit position="south" size="60">
+                <ui:insert name="footer"/>
+            </p:layoutUnit>
+
+        </p:layout>
+
     </h:body>
 
-
-
-
-
-
-
-
-
-
-
-
-
 </html>
-

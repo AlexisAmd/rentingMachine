@@ -16,6 +16,21 @@
     padding: 0.5rem 1rem;
     font-size: 18px;
 }
+.nopadding{
+    padding: 0;
+}
+
+.col{
+    padding: 0;
+}
+
+.ui-panel{
+    padding: 0;
+}
+
+.ui-panel-content{
+    padding: 0;
+}
 
 
 
