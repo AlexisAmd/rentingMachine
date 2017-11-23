@@ -32,8 +32,43 @@
                        </div>
                             
                         <div class="col">
-                            nom des gens qui partent    
-                            ( faire un datable des gens dont la date de check out est ajd et affiché s'ils ont payé ou pas)
+                            <p:outputLabel value="Les départs du jour"></p:outputLabel>
+                            <p:panel >
+                                <p:dataTable id="datalist" value="#{reservationController.checkOutToday}" var="item"
+                                 selectionMode="single" selection="#{reservationController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idRerservation}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 paginatorAlwaysVisible="false"
+                                 paginatorPosition="bottom"
+                                 
+                                 >
+
+                        <p:column sortBy="#{item.idClient.nom}" >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClientTitle_nom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idClient.nom}"/>
+                        </p:column>
+                        
+                        <p:column sortBy="#{item.idClient.prenom}" >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClientTitle_prenom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idClient.prenom}"/>
+                        </p:column>
+                        
+                        <p:column sortBy="#{item.paye}" >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReservationTitle_paye}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.paye}" disabled="true"/>
+                        </p:column>                        
+                        
+                        
+                    </p:dataTable>
+                </p:panel>
                         </div>
                     </div>
                     <div class="row">

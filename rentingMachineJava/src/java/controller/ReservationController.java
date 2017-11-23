@@ -174,12 +174,30 @@ public class ReservationController implements Serializable {
         //itere sur la collection de resa
         for (Reservation r : this.ejbFacade.findAll()) {
             //si la date de depart est egale a la date actuelle
-            if (r.getCheckOutDate().getMonth() == date.getMonth() &&r.getCheckOutDate().getDay()== date.getDay()) {
+            if (r.getCheckOutDate().getMonth() == date.getMonth() &&r.getCheckOutDate().getDate()== date.getDate()) {
                 nbDep++;
             }  
         }
         //return le nb de departs ajd
         return nbDep;
+    }
+            
+        public List<Reservation> getCheckOutToday() {
+            List<Reservation> rtd = new ArrayList<Reservation>();
+            Date date = new Date();
+        int d = date.getDate();
+        int m = date.getMonth();
+        int y = date.getYear();
+       
+        List<Reservation> rs = getFacade().findAll();
+        for (Reservation r : rs){
+                Date c = r.getCheckOutDate();
+            if (c.getYear() == y && c.getMonth() == m && c.getDate() ==d){
+                rtd.add(r);
+                
+            }                
+        }
+        return rtd;
     }
 
 }
