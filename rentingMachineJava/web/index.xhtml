@@ -20,72 +20,102 @@
                 <div class="container h-auto border border-primary rounded nopadding">
                     <div class="row">
                         <div class="col">
-                            taux d'occupation 
 
-                            (faire un p chart metergauge>
 
-                        </div>
-
-                       <div class="col">
-                            nombre de depart ajd 
-                            <h:outputText value="#{reservationController.getNbrAvailable()}"/>
-                       </div>
-                            
-                        <div class="col">
-                            <p:outputLabel value="Les départs du jour"></p:outputLabel>
+                            <h2>Les arrivées du jour</h2>
+                            <br></br>
+                            <h:outputText value="Nombre d'arrivées aujourd'hui : " />
+                            <h:outputText value="#{reservationController.checkInToday.size()}" />
                             <h:form>
-                            <p:panel >
-                                <p:dataTable id="datalist" value="#{reservationController.checkOutToday}" var="item"
-                                 selectionMode="single" selection="#{reservationController.selected}"
-                                 paginator="true"
-                                 rowKey="#{item.idRerservation}"
-                                 rows="10"
-                                 rowsPerPageTemplate="10,20,30,40,50"
-                                 paginatorAlwaysVisible="false"
-                                 paginatorPosition="bottom"
-                                 
-                                 >
+                                <p:panel >
+                                    <p:dataTable id="datalist" value="#{reservationController.checkInToday}" var="item"
+                                                 selectionMode="single" selection="#{reservationController.selected}"
+                                                 paginator="true"
+                                                 rowKey="#{item.idRerservation}"
+                                                 rows="10"
+                                                 rowsPerPageTemplate="10,20,30,40,50"
+                                                 paginatorAlwaysVisible="false"
+                                                 paginatorPosition="bottom"
 
-                        <p:column sortBy="#{item.idClient.nom}" >
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListClientTitle_nom}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idClient.nom}"/>
-                        </p:column>
-                        
-                        <p:column sortBy="#{item.idClient.prenom}" >
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListClientTitle_prenom}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idClient.prenom}"/>
-                        </p:column>
-                        
-                        <p:column sortBy="#{item.paye}" >
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListReservationTitle_paye}" />
-                            </f:facet>
-                            <p:selectBooleanCheckbox value="#{item.paye}" disabled="true"/>
-                        </p:column>                        
-                        
-                        
-                    </p:dataTable>
-                </p:panel>
-                                </h:form>
+                                                 >
+
+                                        <p:column sortBy="#{item.idClient.nom}" >
+                                            <f:facet name="header">
+                                                <h:outputText value="#{bundle.ListClientTitle_nom}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.idClient.nom}"/>
+                                        </p:column>
+
+                                        <p:column sortBy="#{item.idClient.prenom}" >
+                                            <f:facet name="header">
+                                                <h:outputText value="#{bundle.ListClientTitle_prenom}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.idClient.prenom}"/>
+                                        </p:column>
+
+                                        <p:column sortBy="#{item.paye}" >
+                                            <f:facet name="header">
+                                                <h:outputText value="#{bundle.ListReservationTitle_paye}" />
+                                            </f:facet>
+                                            <p:selectBooleanCheckbox value="#{item.paye}" disabled="true"/>
+                                        </p:column>                        
+
+
+                                    </p:dataTable>
+                                </p:panel>
+                            </h:form>
+                        </div>
+
+                        <div class="col">
+                            <h2>Taux d'occupation</h2>
+
+                        </div>
+
+                        <div class="col">
+                            <h2>Les départs du jour</h2><br></br>
+                            <h:outputText value="Nombre de departs aujoudh'hui : " />
+
+                            <h:outputText class="bold" value="#{reservationController.getNbrAvailable()}"/>
+                            <h:form>
+                                <p:panel >
+                                    <p:dataTable id="datalist" value="#{reservationController.checkOutToday}" var="item"
+                                                 selectionMode="single" selection="#{reservationController.selected}"
+                                                 paginator="true"
+                                                 rowKey="#{item.idRerservation}"
+                                                 rows="10"
+                                                 rowsPerPageTemplate="10,20,30,40,50"
+                                                 paginatorAlwaysVisible="false"
+                                                 paginatorPosition="bottom"
+
+                                                 >
+
+                                        <p:column sortBy="#{item.idClient.nom}" >
+                                            <f:facet name="header">
+                                                <h:outputText value="#{bundle.ListClientTitle_nom}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.idClient.nom}"/>
+                                        </p:column>
+
+                                        <p:column sortBy="#{item.idClient.prenom}" >
+                                            <f:facet name="header">
+                                                <h:outputText value="#{bundle.ListClientTitle_prenom}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.idClient.prenom}"/>
+                                        </p:column>
+
+                                        <p:column sortBy="#{item.paye}" >
+                                            <f:facet name="header">
+                                                <h:outputText value="#{bundle.ListReservationTitle_paye}" />
+                                            </f:facet>
+                                            <p:selectBooleanCheckbox value="#{item.paye}" disabled="true"/>
+                                        </p:column>                        
+
+
+                                    </p:dataTable>
+                                </p:panel>
+                            </h:form>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            nombre de chambre impayée
-                            (faire un nombre de chambre impayées et afficher les nom des clients sous forme d'un datable)
-                        </div>
-                        <div class="col">
-                            ?
-                        </div>
-                        <div class="col">
-                            ?
-                        </div>
-                    </div>
-
                 </div>
 
             </p:layoutUnit>

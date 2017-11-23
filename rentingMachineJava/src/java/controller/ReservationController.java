@@ -199,5 +199,21 @@ public class ReservationController implements Serializable {
         }
         return rtd;
     }
-
+       public List<Reservation> getCheckInToday() {
+            List<Reservation> rtd = new ArrayList<Reservation>();
+            Date date = new Date();
+        int d = date.getDate();
+        int m = date.getMonth();
+        int y = date.getYear();
+       
+        List<Reservation> rs = getFacade().findAll();
+        for (Reservation r : rs){
+                Date c = r.getCheckInDate();
+            if (c.getYear() == y && c.getMonth() == m && c.getDate() ==d){
+                rtd.add(r);
+                
+            }                
+        }
+        return rtd;
+    }
 }
