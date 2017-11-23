@@ -174,7 +174,7 @@ public class ReservationController implements Serializable {
         //itere sur la collection de resa
         for (Reservation r : this.ejbFacade.findAll()) {
             //si la date de depart est egale a la date actuelle
-            if (r.getCheckOutDate().compareTo(date) == 0) {
+            if (r.getCheckOutDate().getMonth() == date.getMonth() &&r.getCheckOutDate().getDay()== date.getDay()) {
                 nbDep++;
             }  
         }
