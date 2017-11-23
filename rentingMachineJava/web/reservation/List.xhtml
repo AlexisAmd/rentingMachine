@@ -43,10 +43,11 @@
                             </h:outputText>
                         </p:column>
                         
-                        <p:column filterBy="#{item.checkOutDate}" sortBy="#{item.checkOutDate}">
+                        <p:column filterBy="#{item.checkOutDate}" sortBy="#{item.checkOutDate}" filterMatchMode="contains" >
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListReservationTitle_checkOutDate}"/>
                             </f:facet>
+                            
                             <h:outputText value="#{item.checkOutDate}">
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>

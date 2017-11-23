@@ -26,27 +26,11 @@
 
                         </div>
 
-                        <div class="col">
-                            nombre de depart ajd     
-                            <h:form id="ViewNbFreeRoom">
-                                <p:panel >
-                                    <p:dataTable id="datalist" value="#{reservationController.items}" var="item"
-                                                 paginator="true"
-                                                 rows="10"
-                                                 rowsPerPageTemplate="10,20,30,40,50"
-                                                 >
-
-                                        <p:column>
-                                            <f:facet name="header">
-                                                <h:outputText value="#{bundle.DisplayNbCheckoutAuj}"/>
-                                            </f:facet>
-                                            <h:outputText value="#{item.isFreeToday}"/>
-                                        </p:column>
-
-                                    </p:dataTable>
-                                </p:panel>
-                            </h:form>
-                        </div>
+                       <div class="col">
+                            nombre de depart ajd 
+                            <h:outputText value="#{reservationController.getNbrAvailable()}"/>
+                       </div>
+                            
                         <div class="col">
                             nom des gens qui partent    
                             ( faire un datable des gens dont la date de check out est ajd et affiché s'ils ont payé ou pas)

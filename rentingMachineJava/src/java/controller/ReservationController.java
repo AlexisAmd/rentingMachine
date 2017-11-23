@@ -6,6 +6,8 @@ import dao.util.JsfUtil.PersistAction;
 import facade.ReservationFacade;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -160,6 +162,24 @@ public class ReservationController implements Serializable {
             }
         }
 
+    }
+    
+            public int getNbrAvailable(){
+       
+        //compteur a 0
+        int nbDep = 0;
+        //recup de la date d'ajd
+        Date date = new Date();
+
+        //itere sur la collection de resa
+        for (Reservation r : this.ejbFacade.findAll()) {
+            //si la date de depart est egale a la date actuelle
+            if (r.getCheckOutDate().compareTo(date) == 0) {
+                nbDep++;
+            }  
+        }
+        //return le nb de departs ajd
+        return nbDep;
     }
 
 }
